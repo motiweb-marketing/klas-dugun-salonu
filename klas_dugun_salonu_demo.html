@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KLAS DÜĞÜN Salonu — ankara, Türkiye. Ankara&#x27;da unutulmaz düğünler için özel mekân. Randevu ve teklif için hemen arayın." />
+  <title>KLAS DÜĞÜN Salonu | Düğün &amp; Etkinlik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg2: #F0E8DC;
+      --surface: #FFFFFF;
+      --text: #1C1814;
+      --muted: #6B5F55;
+      --accent: #8B7355;
+      --accent2: #C4A574;
+      --hero-overlay: linear-gradient(180deg, rgba(28,24,20,0.15) 0%, rgba(28,24,20,0.72) 100%);
+      --radius: 8px;
+      --font-d: "Cormorant Garamond", Georgia, serif;
+      --font-b: "Jost", system-ui, sans-serif;
+      --space: clamp(1rem, 2.5vw, 2rem);
+      --container: min(1120px, 92vw);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(20px); animation: rise 0.8s ease forwards; animation-delay: calc(var(--d, 0) * 0.1s + 0.15s); }
+    }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    body {
+      font-family: var(--font-b);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: var(--container); margin-inline: auto; padding-inline: var(--space); }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1rem 0;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .site-header.scrolled {
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent);
+    }
+    .header-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .logo {
+      font-family: var(--font-d);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav {
+      display: flex; gap: clamp(0.75rem, 2vw, 1.5rem);
+      flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--accent); }
+    .nav-cta {
+      color: var(--accent) !important;
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius);
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3 { font-family: var(--font-d); font-weight: 600; line-height: 1.12; }
+    h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 0.75rem; }
+    .section { padding: clamp(4rem, 10vw, 6.5rem) 0; }
+    .section-muted { background: var(--bg2); }
+    .section-head { max-width: 36rem; margin-bottom: 2.5rem; }
+    .section-head p { color: var(--muted); margin-top: 0.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.95rem 1.65rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-fill {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 28px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .btn-fill:hover { transform: translateY(-2px); filter: brightness(1.06); }
+    .btn-line {
+      border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+      color: var(--text);
+    }
+    .hero-cinematic .btn-line { border-color: rgba(255,255,255,0.45); color: #fff; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; }
+    .chip {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+      color: var(--muted);
+      border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+    .hero-cinematic .chip {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .hero-lead { font-size: 1.125rem; color: var(--muted); max-width: 32rem; line-height: 1.7; }
+    .hero-cinematic .hero-lead, .hero-cinematic .eyebrow { color: rgba(255,255,255,0.88); }
+    .hero-cinematic h1 { color: #fff; text-shadow: 0 2px 40px rgba(0,0,0,0.25); }
+
+    .hero-cinematic {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: clamp(3rem, 8vw, 5rem);
+      overflow: hidden;
+    }
+    .hero-media {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+    }
+    .hero-media.has-fallback {
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-fallback-art {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.75rem;
+    }
+    .hero-monogram {
+      font-family: var(--font-d);
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 500;
+      color: color-mix(in srgb, var(--accent) 70%, var(--text));
+      opacity: 0.35;
+      line-height: 1;
+    }
+    .hero-fallback-caption {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-embed-wrap {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .hero-embed-wrap .embed-frame {
+      width: min(100%, 420px);
+      border: 0;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      background: #fff;
+    }
+    .hero-cinematic .hero-media.has-fallback .hero-embed-wrap .embed-frame {
+      max-height: 70vh;
+    }
+    .hero-cinematic:has(.hero-embed-wrap) .hero-scrim {
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+    }
+    .editorial-visual.has-fallback, .boutique-photo.has-fallback {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 420px;
+    }
+    .editorial-visual .hero-embed-wrap, .boutique-photo .hero-embed-wrap {
+      width: 100%; padding: 0;
+    }
+    .editorial-visual .embed-frame, .boutique-photo .embed-frame {
+      width: 100%; min-height: 400px; border: 0; border-radius: var(--radius);
+    }
+    .hero-scrim {
+      position: absolute; inset: 0;
+      background: var(--hero-overlay);
+    }
+    .hero-inner { position: relative; z-index: 2; }
+    .scroll-hint {
+      position: absolute; bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 1.25rem;
+      z-index: 2;
+      animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    .hero-editorial { padding-top: 7rem; }
+    .editorial-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .editorial-grid { grid-template-columns: 1fr 1.05fr; }
+    }
+    .editorial-visual {
+      min-height: 420px;
+      border-radius: var(--radius);
+      background: var(--bg2) center/cover no-repeat;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.08);
+    }
+    .motif { width: 100%; max-width: 280px; margin: 2rem auto 0; display: block; }
+
+    .hero-boutique { padding-top: 7rem; text-align: center; }
+    .display { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 500; }
+    .tagline { font-size: 1.2rem; color: var(--accent); margin: 0.5rem 0 1rem; font-style: italic; }
+    .boutique-photo {
+      width: min(100%, 640px);
+      height: 280px;
+      margin: 2rem auto;
+      border-radius: var(--radius);
+      background: var(--bg2) center/cover no-repeat;
+    }
+    .boutique-wrap .chips, .boutique-wrap .hero-actions { justify-content: center; }
+
+    .svc-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .svc {
+      background: var(--surface);
+      padding: 2rem 1.75rem;
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      transition: 0.3s;
+    }
+    .section-muted .svc { background: var(--bg); }
+    .svc:hover {
+      border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+    }
+    .svc-icon {
+      font-family: var(--font-d);
+      font-size: 2rem;
+      color: var(--accent2);
+      opacity: 0.7;
+      margin-bottom: 0.75rem;
+    }
+    .svc h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .svc p { font-size: 0.92rem; color: var(--muted); }
+
+    .process-list {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      max-width: 640px;
+    }
+    @media (min-width: 700px) {
+      .process-list { grid-template-columns: 1fr 1fr; max-width: none; }
+    }
+    .step {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
+    }
+    .step-n {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .step p { font-size: 0.88rem; color: var(--muted); margin-top: 0.25rem; }
+
+    .gallery-masonry {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .gal-item {
+      grid-column: span 6;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--bg2);
+    }
+    @media (max-width: 700px) { .gal-item { grid-column: span 12; } }
+    .gal-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gal-item:hover img { transform: scale(1.04); }
+    .gal-card {
+      grid-column: span 6;
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 700px) { .gal-card { grid-column: span 12; } }
+    .gal-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.85rem 1rem 0;
+    }
+    .gal-embed-inner {
+      flex: 1;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg2);
+    }
+    .gal-embed-inner .embed-frame {
+      width: 100%;
+      border: 0;
+      min-height: 360px;
+    }
+    .gal-link {
+      padding: 0.85rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border-top: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
+    }
+    .gal-link:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+    .gal-map-card .gal-map-mini {
+      flex: 1;
+      min-height: 220px;
+    }
+    .gal-map-card iframe { width: 100%; height: 100%; min-height: 220px; border: 0; }
+    .gal-embed-card { grid-column: span 6; }
+    @media (min-width: 900px) {
+      .gal-embed-card:first-of-type { grid-column: span 7; }
+      .gal-map-card { grid-column: span 5; }
+    }
+
+    .about-text p + p { margin-top: 1.25rem; }
+    .about-text strong { color: var(--text); font-weight: 600; }
+
+    .quotes {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .quote {
+      padding: 2rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--accent);
+    }
+    .quote p { font-family: var(--font-d); font-size: 1.15rem; font-style: italic; line-height: 1.6; }
+    .quote footer { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+
+    .contact-panel {
+      display: grid;
+      gap: 2rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    }
+    @media (min-width: 768px) {
+      .contact-panel { grid-template-columns: 1fr 1.2fr; }
+    }
+    .phone-xl {
+      font-family: var(--font-d);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: block;
+      margin: 0.5rem 0;
+    }
+    .contact-email { color: var(--accent); font-size: 0.95rem; }
+    .map-frame { border-radius: calc(var(--radius) - 2px); overflow: hidden; min-height: 280px; }
+    .map-frame iframe { width: 100%; height: 100%; min-height: 280px; border: 0; }
+
+    .site-footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer-brand { font-family: var(--font-d); font-size: 1.1rem; color: var(--text); margin-bottom: 0.35rem; }
+
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 150;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 768px) {
+      .mobile-bar { display: flex; gap: 0.5rem; }
+      .mobile-bar .btn { flex: 1; padding: 0.85rem; font-size: 0.85rem; }
+      body { padding-bottom: 4.5rem; }
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body data-sector="wedding" data-layout="cinematic" data-palette="Champagne Editorial">
+  <header class="site-header" id="top">
+    <div class="container header-row">
+      <a class="logo" href="#anasayfa">KLAS DÜĞÜN Salonu</a>
+      <nav class="nav">
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#surec">Süreç</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim" class="nav-cta">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero hero-cinematic" id="anasayfa">
+      <div class="hero-media has-fallback">
+        <div class="hero-fallback-art" style="background: linear-gradient(145deg, #F0E8DC 0%, #C4A57433 45%, #8B735522 100%);">
+      <span class="hero-monogram" aria-hidden="true">KD</span>
+      <span class="hero-fallback-caption">Düğün &amp; Etkinlik</span>
+    </div>
+      </div>
+      <div class="hero-scrim"></div>
+      <svg class="motif" viewBox="0 0 200 24" aria-hidden="true"><path d="M0 12 Q50 0 100 12 T200 12" fill="none" stroke="#8B7355" stroke-width="0.6" opacity="0.35"/></svg>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal">Ankara · Düğün &amp; Etkinlik</p>
+        <h1 class="reveal">Ankara&#x27;da unutulmaz düğünler için özel mekân</h1>
+        <p class="hero-lead reveal">KLAS DÜĞÜN Salonu — samimi atmosfer, esnek paketler ve misafirleriniz için kusursuz bir deneyim.</p>
+        <div class="chips reveal"><span class="chip">ankara, Türkiye</span><span class="chip">Ücretsiz ön görüşme</span><span class="chip">Profesyonel ekip</span><span class="chip">Hızlı iletişim</span></div>
+        <div class="hero-actions reveal">
+          <a class="btn btn-fill" href="tel:+903123701818">Ücretsiz Görüşme</a>
+          <a class="btn btn-line" href="#hizmetler">Hizmetlerimiz</a>
+        </div>
+      </div>
+      <a href="#hizmetler" class="scroll-hint" aria-label="Asagi kaydir">↓</a>
+    </section>
+    <section class="section section-muted" id="hizmetler">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Hizmetlerimiz</p>
+          <h2>Size özel çözümler</h2>
+          <p>Düğün &amp; Etkinlik alanında ihtiyacınıza uygun profesyonel hizmet paketleri.</p>
+        </div>
+        <div class="svc-grid">
+        <article class="svc reveal" style="--d:0">
+          <div class="svc-icon" aria-hidden="true">01</div>
+          <h3>Düğün &amp; Davet Salonu</h3>
+          <p>Özel gününüz için ferah, şık ve konforlu mekân.</p>
+        </article>
+        <article class="svc reveal" style="--d:1">
+          <div class="svc-icon" aria-hidden="true">02</div>
+          <h3>Süsleme &amp; Konsept</h3>
+          <p>Hayalinizdeki atmosferi A&#x27;dan Z&#x27;ye tasarlıyoruz.</p>
+        </article>
+        <article class="svc reveal" style="--d:2">
+          <div class="svc-icon" aria-hidden="true">03</div>
+          <h3>Catering Koordinasyonu</h3>
+          <p>Menü planlaması ve ikram organizasyonu.</p>
+        </article>
+        <article class="svc reveal" style="--d:3">
+          <div class="svc-icon" aria-hidden="true">04</div>
+          <h3>Özel Gün Paketleri</h3>
+          <p>Nişan, kına ve düğün paketleri tek çatı altında.</p>
+        </article></div>
+      </div>
+    </section>
+
+    <section class="section" id="surec">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Nasıl çalışıyoruz?</p>
+          <h2>Adım adım yanınızdayız</h2>
+        </div>
+        <ol class="process-list">
+        <li class="step reveal" style="--d:0">
+          <span class="step-n">1</span>
+          <div>
+            <strong>Tanışma</strong>
+            <p>Hayalinizi ve bütçenizi dinliyoruz.</p>
+          </div>
+        </li>
+        <li class="step reveal" style="--d:1">
+          <span class="step-n">2</span>
+          <div>
+            <strong>Konsept</strong>
+            <p>Mekân, stil ve tedarikçi planı oluşturulur.</p>
+          </div>
+        </li>
+        <li class="step reveal" style="--d:2">
+          <span class="step-n">3</span>
+          <div>
+            <strong>Hazırlık</strong>
+            <p>Prova, süsleme ve teknik kontroller.</p>
+          </div>
+        </li>
+        <li class="step reveal" style="--d:3">
+          <span class="step-n">4</span>
+          <div>
+            <strong>Özel Gün</strong>
+            <p>Ekibimiz baştan sona yanınızda.</p>
+          </div>
+        </li></ol>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="galeri">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Galeri</p>
+          <h2>Portfolyo &amp; Anlar</h2>
+          <p>İşletmemizden gerçek kareler — Instagram ve galerimizden</p>
+        </div>
+        <div class="gallery-masonry"><div class="gal-card gal-embed-card"><span class="gal-label">Facebook</span><div class="gal-embed-inner"><div class="embed-box"><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fklasdugunsalonu&amp;tabs=timeline&amp;width=500&amp;height=400&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" height="400" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div><a class="gal-link" href="https://www.facebook.com/klasdugunsalonu" target="_blank" rel="noopener">Kaynağa git &rarr;</a></div>
+          <div class="gal-card gal-map-card">
+  <span class="gal-label">Konumumuz</span>
+  <div class="gal-map-mini">
+    <iframe src="https://maps.google.com/maps?q=KLAS%20D%C3%9C%C4%9E%C3%9CN%20Salonu%2C%20ankara%2C%20T%C3%BCrkiye&amp;hl=tr&amp;z=15&amp;output=embed" loading="lazy" title="Harita"></iframe>
+  </div>
+  <a class="gal-link" href="https://www.google.com/maps/search/?api=1&amp;query=KLAS%20D%C3%9C%C4%9E%C3%9CN%20Salonu%2C%20ankara%2C%20T%C3%BCrkiye" target="_blank" rel="noopener">Google Maps &rarr;</a>
+</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="hakkimizda">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Hakkımızda</p>
+          <h2>KLAS DÜĞÜN Salonu</h2>
+        </div>
+        <div class="about-text"><p class="reveal"><strong>KLAS DÜĞÜN Salonu</strong>, ankara, Türkiye bölgesinde düğün ve özel gün organizasyonlarında güvenilir bir iş ortağıdır. Her projeye özel yaklaşım ve şeffaf iletişim ilkemizdir.</p><p class="reveal">Mekân seçiminden teknik altyapıya, misafir deneyiminden gün sonu koordinasyonuna kadar uçtan uca hizmet sunuyoruz.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Yorumlar</p>
+          <h2>Misafirlerimiz ne diyor?</h2>
+        </div>
+        <div class="quotes">
+        <blockquote class="quote reveal" style="--d:0">
+          <p>“Her detay düşünülmüştü, düğünümüz tam hayal ettiğimiz gibiydi.”</p>
+          <footer>— Mutlu çift</footer>
+        </blockquote>
+        <blockquote class="quote reveal" style="--d:1">
+          <p>“Profesyonel ekip, stressiz bir süreç. Kesinlikle tavsiye ederiz.”</p>
+          <footer>— Aile daveti</footer>
+        </blockquote></div>
+      </div>
+    </section>
+
+    <section class="section" id="iletisim">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">İletişim</p>
+          <h2>Teklif ve randevu için bize ulaşın</h2>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <p style="color:var(--muted);font-size:0.9rem">Telefon</p>
+            <a class="phone-xl" href="tel:+903123701818">+90 312 370 18 18</a>
+            
+            <p style="margin-top:1.25rem;color:var(--muted)">ankara, Türkiye</p>
+          </div>
+          <div class="map-frame"><iframe src="https://maps.google.com/maps?q=KLAS%20D%C3%9C%C4%9E%C3%9CN%20Salonu%2C%20ankara%2C%20T%C3%BCrkiye&amp;hl=tr&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Konum"></iframe></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">KLAS DÜĞÜN Salonu</p>
+      <p>Özel gününüz için buradayız.</p>
+      <p style="margin-top:1rem">&copy; KLAS DÜĞÜN Salonu · ankara, Türkiye</p>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a class="btn btn-line" href="tel:+903123701818">Ara</a>
+    <a class="btn btn-fill" href="#iletisim">Teklif Al</a>
+  </div>
+
+  <script>
+    (function() {
+      var h = document.getElementById('top');
+      window.addEventListener('scroll', function() {
+        h.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    })();
+  </script>
+  
+</body>
+</html>
